@@ -142,7 +142,6 @@ const SnakeGame = () => {
           alt='Food'
         />
 
-        {/* Renderizar la serpiente */}
         {snake.map((segment, index) => (
           <img
             key={index}

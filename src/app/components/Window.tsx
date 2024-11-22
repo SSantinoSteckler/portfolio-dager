@@ -58,7 +58,7 @@ export const Window = ({
       style={{
         left: position.x,
         top: position.y,
-        // transform: 'translate(-50%, -50%)',
+
         height: `${height}px`,
         width: `${width}px`,
       }}
@@ -70,7 +70,7 @@ export const Window = ({
         onMouseDown={handleMouseDown}
       >
         <article className='w-full h-[57px] bg-[#7758BF] border-b-4 border-[#A185E3] flex items-center pl-5'>
-          <span className='font-[press]'>{name}</span>
+          <span className='text-[12px]'>{name}</span>
         </article>
         <button className='w-[57px] h-[57px] bg-[#B74B4C] flex justify-center items-center shadow-[inset_0_0_0_6px_#AE4244] hover:shadow-[#B35152] hover:bg-[#B55B5C] close-window-btn transition-colors'>
           <svg
