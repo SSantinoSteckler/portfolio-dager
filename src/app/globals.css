@@ -15,3 +15,7 @@
 .press {
   font-family: var(--font-press-start), sans-serif;
 }
+
+.desktop-window {
+  box-shadow: 0 0 0.5rem #0000005b;
+}

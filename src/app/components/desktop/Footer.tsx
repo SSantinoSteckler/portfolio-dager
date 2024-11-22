@@ -8,7 +8,7 @@ export const Footer = () => {
       <div className='outline outline-4 outline-[#D9D9D9] w-[57px] h-full'>
         <Image
           src={dagerImg}
-          className='w-full h-full'
+          className='w-full h-full blur-[1.1px]'
           alt='dot-dager-face'
           placeholder='blur'
         />

@@ -1,6 +1,7 @@
 import { Window } from '../components/Window';
 import { DesktopView } from '../components/desktop/DesktopView';
 import { Footer } from '../components/desktop/Footer';
+import { ProfileCard } from '../components/dotgpt/ProfileCard';
 
 export default function DesktopPage() {
   return (
@@ -9,6 +10,7 @@ export default function DesktopPage() {
         <Window name='dad'>
           <span>POrfa anda</span>
         </Window>
+        <ProfileCard content='ddddddddddddddddddddddddddddddddd djioajdoiajoidjoajdai sjodjaojdajdioajdojaid ijdoasjdoaijdiajiodj' />
       </DesktopView>
       <Footer />
     </section>
