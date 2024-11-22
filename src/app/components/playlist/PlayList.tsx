@@ -2,6 +2,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import PlayIcon from './PlayIcon';
 import StopIcon from './StopIcon';
+import { useAudioStore } from '@/app/stores/store-app';
 
 const PlayList = () => {
   interface Song {
@@ -21,7 +22,6 @@ const PlayList = () => {
       url: '/videoplayback2.m4a',
       image: '/dagermusic.png',
     },
-
     {
       title: 'Mis ganas de comerte',
       url: '/videoplayback.m4a',
@@ -42,6 +42,8 @@ const PlayList = () => {
   const progressBarRef = useRef<HTMLDivElement | null>(null);
 
   const currentSong = songs[currentSongIndex];
+
+  const { isMuted, toggleMute } = useAudioStore();
 
   useEffect(() => {
     if (audioRef.current) {
@@ -93,8 +95,14 @@ const PlayList = () => {
     setIsPlaying(true);
   };
 
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.muted = isMuted;
+    }
+  }, [isMuted]);
+
   return (
-    <div className='bg-[#826293] max-w-[530px] px-6 py-6 flex flex-col gap-9 box-shadow w-full mx-8 my-5'>
+    <div className='bg-[#826293] max-w-full sm:max-w-[530px] px-6 py-6 flex flex-col gap-9 box-shadow w-full mx-4 sm:mx-8 my-5'>
       <div className='flex justify-center'>
         <h3 className='text-[28px] text-white'>Playlist</h3>
       </div>
