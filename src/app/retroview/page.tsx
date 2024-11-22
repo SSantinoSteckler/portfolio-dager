@@ -1,8 +1,12 @@
 import React from 'react';
-import SnakeGame from '../components/game-snake/snake';
+import SpacialDager from '../components/space-dager-game/spacial-dager';
 
 const Retroview = () => {
-  return <section className='press'></section>;
+  return (
+    <section className='press'>
+      <SpacialDager />
+    </section>
+  );
 };
 
 export default Retroview;
