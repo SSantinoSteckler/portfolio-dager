@@ -4,7 +4,7 @@ import { FooterBtn } from './FooterBtn';
 
 export const Footer = () => {
   return (
-    <footer className='h-[69px] w-full bg-[#826293] flex items-center justify-around p-[12px_18px] g-[40px]'>
+    <footer className='h-[69px] w-full bg-[#826293] flex items-center justify-around gap-5 p-[12px_18px] g-[40px]'>
       <div className='outline outline-4 outline-[#D9D9D9] w-[57px] h-full'>
         <Image
           src={dagerImg}
