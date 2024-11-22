@@ -11,7 +11,8 @@ export const DesktopIcon = ({ img, name, onClick }: Props) => {
       onDoubleClick={() => onClick()}
     >
       <div
-        className={`size-[100px] bg-[url(${img})] bg-center bg-cover bg-no-repeat`}
+        style={{ backgroundImage: `url(${img})` }}
+        className={`size-[100px]  bg-center bg-cover bg-no-repeat`}
       ></div>
       <span className='text-[1.1rem] text-[#826293] break-words'>{name}</span>
     </section>
