@@ -18,21 +18,21 @@ export default function Home() {
     };
 
     if (clickCount === 0) {
-      newValue = 'Mentira gordi mejor click aquí';
+      newValue = 'Mentira gordito mejor click aquí';
     } else if (clickCount === 1) {
-      newValue = 'Okey nono mejor Click aquí jejox';
+      newValue = 'Okey nono mejor Click aquí loquita';
     } else if (clickCount === 2) {
-      newValue = 'Ni ella jugo tanto conmigo😭';
+      newValue = 'Ni ella jugo tanto conmigo';
     } else {
       newValue = (
         <Link
-          style={{ fontSize: '25px' }}
-          href='/retro'
+          style={{ fontSize: '24px' }}
+          href='/retroview'
           rel='noopener noreferrer'
+          className='m-6'
         >
           Bueno ahora si tio Dager aquí te dejo tu portfolio hecho con mucho
-          cariño💗 (CON 200 DOLARES PODRÍA COMPRAR MUCHOS{' '}
-          <span className='text-green-800'> PEPINOS</span>)
+          cariño sapeee 💗
         </Link>
       );
       newPosition = { top: 50, left: 50 };
@@ -44,12 +44,13 @@ export default function Home() {
   };
 
   return (
-    <section className='h-screen'>
+    <section className={`h-screen roboto p-5 `}>
       <div className='flex justify-center items-center w-full h-full'>
         <p
+          className='roboto'
           onClick={handleClick}
           style={{
-            fontSize: '20px',
+            fontSize: '18px',
             position: 'absolute',
             top: `${position.top}%`,
             left: `${position.left}%`,
