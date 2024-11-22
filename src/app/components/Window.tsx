@@ -58,7 +58,7 @@ export const Window = ({
 
   return (
     <section
-      className={`bg-[#ddd5f1] absolute desktop-window`}
+      className={`bg-[#ddd5f1] absolute desktop-window z-50`}
       style={{
         left: position.x,
         top: position.y,
@@ -68,11 +68,11 @@ export const Window = ({
         maxWidth: `${maxWidth}px`,
       }}
       ref={modalRef}
+      onMouseDown={handleMouseDown}
     >
       <header
         className='flex justify-between items-center h-[57] w-full'
         ref={windowRef}
-        onMouseDown={handleMouseDown}
       >
         <article className='w-full h-[57px] bg-[#7758BF] border-b-4 border-[#A185E3] flex items-center pl-5'>
           <span className='text-[12px]'>{name}</span>
