@@ -1,58 +1,54 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface Props {
   children: React.ReactNode;
   name: string;
   width?: number;
   height?: number;
-  modalRef: React.RefObject<HTMLDivElement>;
-  parentRef: React.RefObject<HTMLDivElement>;
+  modalRef?: React.RefObject<HTMLDivElement>;
 }
 
 export const Window = ({
   children,
   name,
-  width = 1348,
-  height = 770,
+  width = 900,
+  height = 500,
   modalRef,
 }: Props) => {
   const [isDragging, setIsDragging] = useState(false);
-  const [position, setPosition] = useState({ x: 50, y: 50 }); // Posición inicial del elemento
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const windowRef = useRef(null);
+  const startPos = useRef({ x: 0, y: 0 });
 
-  const parentRef = document.getElementById('desktop-view');
-
-  const handleMouseDown = () => {
+  const handleMouseDown = (e) => {
     setIsDragging(true);
+    startPos.current = { x: e.clientX - position.x, y: e.clientY - position.y };
   };
 
-  const handleMouseMove = (event) => {
-    if (!isDragging || !parentRef) return;
-
-    const parentRect = parentRef.getBoundingClientRect();
-
-    // Calcular posición relativa al padre
-    const x = event.clientX - parentRect.left;
-    const y = event.clientY - parentRect.top;
-
-    // Actualizar posición del elemento
-    setPosition({
-      x: Math.max(0, Math.min(x, parentRect.width)), // Asegurarse de no salir del padre
-      y: Math.max(0, Math.min(y, parentRect.height)),
-    });
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    const x = e.clientX - startPos.current.x;
+    const y = e.clientY - startPos.current.y;
+    setPosition({ x, y });
   };
 
   const handleMouseUp = () => {
     setIsDragging(false);
   };
 
+  // Attach events to the document to track mouse movements even if the mouse moves outside the window.
   useEffect(() => {
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseup', handleMouseUp);
-
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+    } else {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    }
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
     };
   }, [isDragging]);
 
@@ -62,18 +58,19 @@ export const Window = ({
       style={{
         left: position.x,
         top: position.y,
-        transform: 'translate(-50%, -50%)',
+        // transform: 'translate(-50%, -50%)',
         height: `${height}px`,
         width: `${width}px`,
       }}
       ref={modalRef}
     >
       <header
-        onMouseDown={handleMouseDown}
         className='flex justify-between items-center h-[57] w-full'
+        ref={windowRef}
+        onMouseDown={handleMouseDown}
       >
-        <article className='w-full h-[53px] bg-[#7758BF] border-b-4 border-[#A185E3]'>
-          <span>{name}</span>
+        <article className='w-full h-[57px] bg-[#7758BF] border-b-4 border-[#A185E3] flex items-center pl-5'>
+          <span className='font-[press]'>{name}</span>
         </article>
         <button className='w-[57px] h-[57px] bg-[#B74B4C] flex justify-center items-center shadow-[inset_0_0_0_6px_#AE4244] hover:shadow-[#B35152] hover:bg-[#B55B5C] close-window-btn transition-colors'>
           <svg
@@ -89,7 +86,7 @@ export const Window = ({
           </svg>
         </button>
       </header>
-      {children}
+      <article className='w-full h-full p-5'>{children}</article>
     </section>
   );
 };

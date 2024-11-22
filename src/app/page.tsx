@@ -27,7 +27,7 @@ export default function Home() {
       newValue = (
         <Link
           style={{ fontSize: '24px' }}
-          href='/retroview'
+          href='/desktop'
           rel='noopener noreferrer'
           className='m-6'
         >
