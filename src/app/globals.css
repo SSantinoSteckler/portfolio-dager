@@ -15,3 +15,7 @@
 .press {
   font-family: var(--font-press-start), sans-serif;
 }
+
+.box-shadow {
+  box-shadow: 25px 20px 1px rgba(0, 0, 0, 0.7);
+}
