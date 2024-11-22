@@ -16,11 +16,10 @@
   font-family: var(--font-press-start), sans-serif;
 }
 
-<<<<<<< HEAD
-.desktop-window {
-  box-shadow: 0 0 0.5rem #0000005b;
-=======
 .box-shadow {
   box-shadow: 25px 20px 1px rgba(0, 0, 0, 0.7);
->>>>>>> 3a0d167fc7e329603b8e107f7d1d45a50e8ab29b
+}
+
+.desktop-window {
+  box-shadow: 0 0 1rem #0000006f;
 }
