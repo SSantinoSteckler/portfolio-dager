@@ -1,11 +1,8 @@
 import React from 'react';
+import SnakeGame from '../components/game-snake/snake';
 
 const Retroview = () => {
-  return (
-    <section className='press'>
-      hholaadfjkdas como estas esta letra es tero
-    </section>
-  );
+  return <section className='press'></section>;
 };
 
 export default Retroview;
