@@ -1,20 +1,39 @@
+import { Window } from '../Window';
+
 interface Props {
   img: string;
   name: string;
   onClick: () => void;
+  isOpen: boolean;
+  children: React.ReactNode;
 }
 
-export const DesktopIcon = ({ img, name, onClick }: Props) => {
+export const DesktopIcon = ({
+  img,
+  name,
+  onClick,
+  isOpen,
+  children,
+}: Props) => {
   return (
-    <section
-      className='w-[150px] flex flex-col g-2 overflow-hidden justify-center items-center pt-2 pb-2 hover:bg-[#7d767621] hover:outline-[2px_solid_#ffffff55] hover:cursor-pointer'
-      onDoubleClick={() => onClick()}
-    >
-      <div
-        style={{ backgroundImage: `url(${img})` }}
-        className={`size-[100px]  bg-center bg-cover bg-no-repeat`}
-      ></div>
-      <span className='text-[1.1rem] text-[#826293] break-words'>{name}</span>
-    </section>
+    <>
+      <section
+        className='w-[150px] flex flex-col  g-2 overflow-hidden gap-2 justify-center items-center pt-2 pb-2 hover:bg-[#7d767621] hover:outline-[2px_solid_#ffffff55] hover:cursor-pointer'
+        onClick={() => onClick()}
+      >
+        <div
+          style={{ backgroundImage: `url(${img})` }}
+          className={`size-[100px]  bg-center bg-cover bg-no-repeat rounded-lg`}
+        ></div>
+        <span className='text-[0.9rem] text-[#826293] break-words text-center'>
+          {name}
+        </span>
+      </section>
+      {isOpen && (
+        <Window name={name} onClick={onClick}>
+          {children}
+        </Window>
+      )}
+    </>
   );
 };

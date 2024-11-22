@@ -33,7 +33,7 @@ const CatsGalery = () => {
   }, []);
 
   return (
-    <div className='bg-black max-w-[1000px]  p-4 overflow-y-scroll flex justify-center'>
+    <div className='bg-black max-w-[1000px] h-[500px]  p-4 overflow-y-scroll flex justify-center'>
       <div className='flex flex-wrap flex-row gap-3 justify-center w-full '>
         {catImages.map((cat, index) => (
           <Image

@@ -9,9 +9,11 @@ interface Props {
   maxHeight?: number;
   maxWidth?: number;
   modalRef?: React.RefObject<HTMLDivElement>;
+  onClick: () => void;
 }
 
 export const Window = ({
+  onClick,
   children,
   name,
   minWidth = 700,
@@ -21,7 +23,9 @@ export const Window = ({
   modalRef,
 }: Props) => {
   const [isDragging, setIsDragging] = useState(false);
+
   const [position, setPosition] = useState({ x: 0, y: 0 });
+
   const windowRef = useRef(null);
   const startPos = useRef({ x: 0, y: 0 });
 
@@ -56,12 +60,15 @@ export const Window = ({
     };
   }, [isDragging]);
 
+  // let positionOptionX = `calc(50% - ${minWidth} / 2)`;
+  // let positionOptionY = `calc(50% - ${minHeight} / 2)`;
+
   return (
     <section
-      className={`bg-[#ddd5f1] absolute desktop-window z-50`}
+      className={`bg-[#ddd5f1] absolute desktop-window w-auto z-50 `}
       style={{
-        left: position.x,
-        top: position.y,
+        left: position.x || '500px',
+        top: position.y || '50px',
         minHeight: `${minHeight}px`,
         minWidth: `${minWidth}px`,
         maxHeight: `${maxHeight}px`,
@@ -77,7 +84,10 @@ export const Window = ({
         <article className='w-full h-[57px] bg-[#7758BF] border-b-4 border-[#A185E3] flex items-center pl-5'>
           <span className='text-[12px]'>{name}</span>
         </article>
-        <button className='w-[57px] h-[57px] bg-[#B74B4C] flex justify-center items-center shadow-[inset_0_0_0_6px_#AE4244] hover:shadow-[#B35152] hover:bg-[#B55B5C] close-window-btn transition-colors'>
+        <button
+          onClick={onClick}
+          className='w-[57px] h-[57px] bg-[#B74B4C] flex justify-center items-center shadow-[inset_0_0_0_6px_#AE4244] hover:shadow-[#B35152] hover:bg-[#B55B5C] close-window-btn transition-colors'
+        >
           <svg
             width='1em'
             height='1em'

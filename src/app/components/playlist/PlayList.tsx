@@ -43,7 +43,7 @@ const PlayList = () => {
 
   const currentSong = songs[currentSongIndex];
 
-  const { isMuted, toggleMute, isPlaylist } = useAudioStore();
+  const { isMuted, isPlaylist } = useAudioStore();
 
   useEffect(() => {
     if (audioRef.current) {
@@ -115,7 +115,7 @@ const PlayList = () => {
                 className={`py-2 ${
                   index === currentSongIndex
                     ? 'bg-[#826293] text-white'
-                    : 'bg-gray-400'
+                    : 'bg-[#a4a4a4]'
                 } cursor-pointer`}
                 onClick={() => handleSongClick(index)}
               >

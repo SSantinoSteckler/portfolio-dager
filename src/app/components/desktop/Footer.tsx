@@ -15,7 +15,7 @@ export const Footer = () => {
   const openModal = () => setIsModalOpen(!isModalOpen);
 
   return (
-    <footer className='relative h-[69px] w-full bg-[#826293] flex items-center justify-around gap-5 p-[12px_18px] g-[40px]'>
+    <footer className='relative h-[69px] w-full bg-[#826293] flex items-center justify-around gap-5 p-[12px_18px] g-[40px] press'>
       <div className='outline outline-4 outline-[#D9D9D9] w-[57px] h-full'>
         <Image
           src={dagerImg}
@@ -25,10 +25,10 @@ export const Footer = () => {
         />
       </div>
       <div className='h-full w-full outline outline-4 outline-[#D9D9D9] flex items-center p-[4px_16px] bg-[#A4A4A4]'>
-        www.dotdager.com
+        <span className='text-[14px]'>www.dotdager.com</span>
       </div>
-      <FooterBtn>
-        <div onClick={toggleMute}>
+      <FooterBtn onClick={toggleMute}>
+        <div>
           {isMuted ? (
             <MutedIcon />
           ) : (
@@ -46,8 +46,8 @@ export const Footer = () => {
           )}
         </div>
       </FooterBtn>
-      <FooterBtn>
-        <div onClick={setIsPlayList}>
+      <FooterBtn onClick={setIsPlayList}>
+        <div>
           <svg
             width='1em'
             height='1em'
@@ -61,8 +61,8 @@ export const Footer = () => {
           </svg>
         </div>
       </FooterBtn>
-      <FooterBtn>
-        <div onClick={openModal}>
+      <FooterBtn onClick={openModal}>
+        <div>
           <svg
             width='1em'
             height='1em'
