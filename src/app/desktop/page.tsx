@@ -1,6 +1,7 @@
 import { Window } from '../components/Window';
 import { DesktopView } from '../components/desktop/DesktopView';
 import { Footer } from '../components/desktop/Footer';
+import { DotGPT } from '../components/dotgpt/DotGpt';
 import { ProfileCard } from '../components/dotgpt/ProfileCard';
 import PlayList from '../components/playlist/PlayList';
 
@@ -10,7 +11,7 @@ export default function DesktopPage() {
       <DesktopView>
         {/* <div>.</div> */}
         <Window name='dad'>
-          <ProfileCard content='bdadkabdakdjbakdbkah dasjdkjhadkhakdhad dhaskdhakjhdkjah dajsdh' />
+          <DotGPT />
         </Window>
 
         <PlayList />
