@@ -1,8 +1,13 @@
+'use client';
 import Image from 'next/image';
 import dagerImg from '../../../../public/dager1.jpg';
 import { FooterBtn } from './FooterBtn';
+import { useAudioStore } from '@/app/stores/store-app';
+import MutedIcon from '../playlist/MutedIcon';
 
 export const Footer = () => {
+  const { isMuted, toggleMute } = useAudioStore();
+
   return (
     <footer className='h-[69px] w-full bg-[#826293] flex items-center justify-around gap-5 p-[12px_18px] g-[40px]'>
       <div className='outline outline-4 outline-[#D9D9D9] w-[57px] h-full'>
@@ -17,17 +22,23 @@ export const Footer = () => {
         www.dotdager.com
       </div>
       <FooterBtn>
-        <svg
-          width='1em'
-          height='1em'
-          viewBox='0 0 24 24'
-          className='h-[26.6px] w-[26.6px]'
-        >
-          <path
-            fill='currentColor'
-            d='M11 2h2v20h-2v-2H9v-2h2V6H9V4h2zM7 8V6h2v2zm0 8H3V8h4v2H5v4h2zm0 0v2h2v-2zm10-6h-2v4h2zm2-2h2v8h-2zm0 8v2h-4v-2zm0-10v2h-4V6z'
-          />
-        </svg>
+        <div onClick={toggleMute}>
+          {isMuted ? (
+            <MutedIcon />
+          ) : (
+            <svg
+              width='1em'
+              height='1em'
+              viewBox='0 0 24 24'
+              className='h-[26.6px] w-[26.6px]'
+            >
+              <path
+                fill='currentColor'
+                d='M11 2h2v20h-2v-2H9v-2h2V6H9V4h2zM7 8V6h2v2zm0 8H3V8h4v2H5v4h2zm0 0v2h2v-2zm10-6h-2v4h2zm2-2h2v8h-2zm0 8v2h-4v-2zm0-10v2h-4V6z'
+              />
+            </svg>
+          )}
+        </div>
       </FooterBtn>
       <FooterBtn>
         <svg
