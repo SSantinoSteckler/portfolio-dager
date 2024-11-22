@@ -19,3 +19,7 @@
 .box-shadow {
   box-shadow: 25px 20px 1px rgba(0, 0, 0, 0.7);
 }
+
+.desktop-window {
+  box-shadow: 0 0 1rem #0000006f;
+}

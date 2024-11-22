@@ -4,16 +4,20 @@ import { useState, useEffect, useRef } from 'react';
 interface Props {
   children: React.ReactNode;
   name: string;
-  width?: number;
-  height?: number;
+  minWidth?: number;
+  minHeight?: number;
+  maxHeight?: number;
+  maxWidth?: number;
   modalRef?: React.RefObject<HTMLDivElement>;
 }
 
 export const Window = ({
   children,
   name,
-  width = 900,
-  height = 500,
+  minWidth = 700,
+  minHeight = 400,
+  maxHeight = 800,
+  maxWidth = 1000,
   modalRef,
 }: Props) => {
   const [isDragging, setIsDragging] = useState(false);
@@ -54,13 +58,14 @@ export const Window = ({
 
   return (
     <section
-      className={`bg-[#ddd5f1] absolute`}
+      className={`bg-[#ddd5f1] absolute desktop-window`}
       style={{
         left: position.x,
         top: position.y,
-
-        height: `${height}px`,
-        width: `${width}px`,
+        minHeight: `${minHeight}px`,
+        minWidth: `${minWidth}px`,
+        maxHeight: `${maxHeight}px`,
+        maxWidth: `${maxWidth}px`,
       }}
       ref={modalRef}
     >

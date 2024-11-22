@@ -13,17 +13,17 @@ const PlayList = () => {
 
   const songs: Song[] = [
     {
-      title: 'El Meneaito',
+      title: 'Centrando un div',
       url: '/videoplayback3.m4a',
       image: '/dagermusic5.png',
     },
     {
-      title: 'Danza kuduro',
+      title: 'Laburando un martes',
       url: '/videoplayback2.m4a',
       image: '/dagermusic.png',
     },
     {
-      title: 'La canción del pepino',
+      title: 'Mis ganas de comerte',
       url: '/videoplayback.m4a',
       image: '/dagermusic3.png',
     },
