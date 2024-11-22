@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: var(--font-press-start), sans-serif;
-}
+/* globals.css */
 
 .roboto {
   font-family: var(--font-roboto), sans-serif;
@@ -12,4 +10,8 @@ body {
 
 .close-window-btn:hover svg path {
   fill: #ffffff77;
+}
+
+.press {
+  font-family: var(--font-press-start), sans-serif;
 }
