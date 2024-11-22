@@ -9,3 +9,7 @@ body {
 .roboto {
   font-family: var(--font-roboto), sans-serif;
 }
+
+.close-window-btn:hover svg path {
+  fill: #ffffff77;
+}
