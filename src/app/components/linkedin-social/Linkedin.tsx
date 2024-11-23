@@ -22,10 +22,7 @@ const Linkedin = () => {
             </div>
             <div className='flex flex-col gap-3'>
               <div className='flex flex-row gap-2 items-center'>
-                <img
-                  className='w-[40px] h-[40px]'
-                  src='https://media.licdn.com/dms/image/v2/C4E0BAQFA5P0Ron7FQw/company-logo_100_100/company-logo_100_100/0/1635534765181/university_of_nebraska_lincoln_logo?e=1740614400&v=beta&t=e_K59RyniVgs7QAwULcxCZOwGA3LFy0g_t51mkAHw6k'
-                />
+                <img className='w-[40px] h-[40px]' src='/nebraska.jpg' />
                 <a
                   href='https://www.unl.edu/'
                   className='text-[9px] max-w-[150px]'
@@ -82,7 +79,7 @@ const Linkedin = () => {
       <div className='bg-white p-4 rounded-xl flex flex-col gap-6'>
         <h3 className='text-[12px]'>Experiencia</h3>
         <Experience
-          img='https://media.licdn.com/dms/image/v2/C4E0BAQFA5P0Ron7FQw/company-logo_100_100/company-logo_100_100/0/1635534765181/university_of_nebraska_lincoln_logo?e=1740614400&v=beta&t=e_K59RyniVgs7QAwULcxCZOwGA3LFy0g_t51mkAHw6k'
+          img='/nebraska.jpg'
           title='Lead Developer'
           subtitle='  University of Nebraska-Lincoln · Jornada completaUniversity'
           extrasubtitle='dic. 2020 - actualidad · 4 años'
@@ -90,7 +87,7 @@ const Linkedin = () => {
           leading & systems design consulting.'
         />
         <Experience
-          img='https://media.licdn.com/dms/image/v2/C4E0BAQFBd6OtSlLKSw/company-logo_100_100/company-logo_100_100/0/1630567679014?e=1740614400&v=beta&t=RegahB7sRATn6GFkxGSxNUBaoprdHZGBYtz8CBUhDek'
+          img='/grupoalpha.jpg'
           title='Sofware Developer '
           subtitle='Grupo Alpha 2000 · Profesional independiente'
           extrasubtitle='dic. 2018 - actualidad · 6 años
@@ -106,7 +103,7 @@ Winforms, tons of microservices and fun stuff.'
           data='Full-stack software development and general IT consulting, especially around optimization and automation of processes.'
         />
         <Experience
-          img='https://media.licdn.com/dms/image/v2/D4E0BAQEnK1_at9q3PA/company-logo_100_100/company-logo_100_100/0/1656675003147/atento_logo?e=1740614400&v=beta&t=Iiv8NfnMczNVRaqeNHPueCObSiCwKNko8GD9ETW0lzg'
+          img='/atento_logo.jpg'
           title='
 Help Desk Technician '
           subtitle='Atento · Jornada parcial'
@@ -127,7 +124,7 @@ UHF TV.'
         <Certifications
           title='EF SET English Certificate 84/100 (C2 Proficient)'
           subtitle='EF SET'
-          img='https://media.licdn.com/dms/image/v2/D4E0BAQFLraHojJVQhA/company-logo_100_100/company-logo_100_100/0/1728915497369/efset_logo?e=1740614400&v=beta&t=B2wJT_yMlm2At1v7ylJ1mWOmJGQpoBh5HHyezkxxHI8'
+          img='/efset_logo.jpg'
           link='https://cert.efset.org/4Dx3UW'
         />
         <Certifications

@@ -9,6 +9,7 @@ import SpacialDager from '../components/space-dager-game/spacial-dager';
 import SnakeGame from '../components/game-snake/snake';
 import CatsGalery from '../components/cats-galery/CatsGalery';
 import Linkedin from '../components/linkedin-social/Linkedin';
+import Game from '../components/lumberjack/Game';
 
 export default function DesktopPage() {
   const [isOpenDotGpt, setIsOpenDotGpt] = useState(false);
@@ -17,6 +18,7 @@ export default function DesktopPage() {
   const [isOpenFolderCats, setIsOpenFolderCats] = useState(false);
   const [isOpenLinkedin, setIsOpenLinkedin] = useState(false);
   const [isOpenHack, setIsOpenHack] = useState(false);
+  const [isOpenLumberjack, setIsOpenLumberjack] = useState(false);
   // const [cursor, setCursor] = useState(false);
 
   const [showIntro, setShowIntro] = useState(true);
@@ -31,7 +33,7 @@ export default function DesktopPage() {
   const handleClickFolderCats = () => setIsOpenFolderCats(!isOpenFolderCats);
   const handleClickLinkedin = () => setIsOpenLinkedin(!isOpenLinkedin);
   const handleClickHack = () => setIsOpenHack(!isOpenHack);
-  const handleClickCursor = () => setCursor(true);
+  const handleClickLumberjack = () => setIsOpenLumberjack(!isOpenLumberjack);
 
   if (showIntro) {
     return (
@@ -82,7 +84,7 @@ export default function DesktopPage() {
           >
             <SpacialDager />
           </DesktopIcon>
-          <div onClick={handleClickCursor}>
+          <div>
             <DesktopIcon
               img='/php.png'
               name='contrato.php (digo.pdf)'
@@ -121,6 +123,19 @@ export default function DesktopPage() {
             minHeight={400}
           >
             <Linkedin />
+          </DesktopIcon>
+          <DesktopIcon
+            img='/lumberjack.png'
+            name='LumberJack'
+            isOpen={isOpenLumberjack}
+            onClick={handleClickLumberjack}
+            minWidth={900}
+            minHeight={400}
+          >
+            <iframe
+              src='https://tbot.xyz/lumber/'
+              className='w-full h-[700px]'
+            ></iframe>
           </DesktopIcon>
         </div>
         <PlayList />
