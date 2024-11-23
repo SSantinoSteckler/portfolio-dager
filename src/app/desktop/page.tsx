@@ -151,7 +151,7 @@ export default function DesktopPage() {
           >
             <iframe
               src='https://tbot.xyz/lumber/'
-              className='w-full h-[700px]'
+              className='w-full h-[590px]'
             ></iframe>
           </DesktopIcon>
         </div>
