@@ -91,7 +91,7 @@ export default function DesktopPage() {
       <DesktopView className={`${isCursorActive}`}>
         <DagerSay key={window} code={window} />
         <div
-          className={`grid grid-cols-2 grid-row-4 justify-start items-start flex-col`}
+          className={`grid grid-cols-3 grid-row-3 justify-start items-start`}
         >
           <DesktopIcon
             img='/dagergpt.png'

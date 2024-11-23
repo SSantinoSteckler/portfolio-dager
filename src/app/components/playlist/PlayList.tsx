@@ -104,9 +104,9 @@ const PlayList = () => {
   return (
     <>
       {isPlaylist ? (
-        <div className='bg-[#826293] max-w-full sm:max-w-[430px] px-4 py-4 flex flex-col justify-around gap-4 box-shadow w-full mx-4 sm:mx-8 2xl:max-h-[550px] max-h-[500px]'>
+        <div className='bg-[#826293] max-w-full sm:max-w-[430px] px-4 py-4 flex flex-col justify-around gap-2 box-shadow w-full mx-4 sm:mx-8 2xl:max-h-[550px] max-h-[500px]'>
           <div className='flex justify-center'>
-            <h3 className='text-[22px] text-white'>Playlist</h3>
+            <h3 className='text-[18px] text-white'>Playlist</h3>
           </div>
           <div className='p-2 bg-[#DDD8DF] flex gap-2 flex-col'>
             {songs.map((song, index) => (
