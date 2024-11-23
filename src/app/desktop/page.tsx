@@ -86,12 +86,16 @@ export default function DesktopPage() {
 
   return (
     <section
+<<<<<<< HEAD
       className={`bg-[#ddd8df] p-[24px] h-screen gap-5 flex flex-col  overflow-hidden overflow-y-scroll`}
+=======
+      className={`bg-[#ddd8df] p-[24px] gap-5 flex flex-col  h-[100dvh] overflow-hidden`}
+>>>>>>> 5ecc413fe80858f14bbc0dae839ef522658a5ce0
     >
       <DesktopView className={`${isCursorActive}`}>
         <DagerSay key={window} code={window} />
         <div
-          className={`grid grid-cols-2 grid-row-4 justify-start items-start flex-col`}
+          className={`grid grid-cols-3 grid-row-3 justify-start items-start`}
         >
           <DesktopIcon
             img='/dagergpt.png'
