@@ -92,7 +92,7 @@ export const Footer = () => {
       </FooterBtn>
 
       {isModalOpen && (
-        <div className='absolute max-w-[200px] w-full bottom-[100%] left-[93%] transform -translate-x-1/2 z-10'>
+        <div className='absolute max-w-[200px] w-full bottom-[110%] left-[80%] transform -translate-x-1/2 z-10'>
           <ModalSocial />
         </div>
       )}
