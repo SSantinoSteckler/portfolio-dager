@@ -9,7 +9,7 @@ import PlayList from '../components/playlist/PlayList';
 import SpacialDager from '../components/space-dager-game/spacial-dager';
 import SnakeGame from '../components/game-snake/snake';
 import CatsGalery from '../components/cats-galery/CatsGalery';
-import { useVirusStore } from '../stores/store-app';
+import { useDagerSay, useVirusStore } from '../stores/store-app';
 import Linkedin from '../components/linkedin-social/Linkedin';
 import { DagerSay } from '../components/dager-interactions/DagerSay';
 
@@ -21,6 +21,8 @@ export default function DesktopPage() {
   const [isOpenLinkedin, setIsOpenLinkedin] = useState(false);
   const [isOpenLumberjack, setIsOpenLumberjack] = useState(false);
   const { setIsVirusActive, isVirusActive } = useVirusStore();
+  // const { window, setWindow } = useDagerSay();
+  const [window, setWindow] = useState('bienvenida');
 
   const [showIntro, setShowIntro] = useState(true);
 
@@ -28,14 +30,27 @@ export default function DesktopPage() {
     setShowIntro(false);
   };
 
-  const handleClickDotGpt = () => setIsOpenDotGpt(!isOpenDotGpt);
+  const handleClickDotGpt = () => {
+    setIsOpenDotGpt(!isOpenDotGpt);
+    setWindow('dotgpt');
+  };
   const handleClickSpaceXDager = () => setIsOpenSpaceXDager(!isOpenSpaceXDager);
   const handleClickSnake = () => setIsOpenSnake(!isOpenSnake);
-  const handleClickFolderCats = () => setIsOpenFolderCats(!isOpenFolderCats);
-  const handleClickLinkedin = () => setIsOpenLinkedin(!isOpenLinkedin);
-  const handleClickLumberjack = () => setIsOpenLumberjack(!isOpenLumberjack);
+  const handleClickFolderCats = () => {
+    setIsOpenFolderCats(!isOpenFolderCats);
+    setWindow('gatitos');
+  };
+  const handleClickLinkedin = () => {
+    setIsOpenLinkedin(!isOpenLinkedin);
+    setWindow('linkedin');
+  };
+  const handleClickLumberjack = () => {
+    setIsOpenLumberjack(!isOpenLumberjack);
+    setWindow('lumber-jack');
+  };
   const handleClickVirus = () => {
     setIsVirusActive();
+    setWindow('virus');
   };
 
   if (showIntro) {
@@ -74,7 +89,7 @@ export default function DesktopPage() {
       className={`bg-[#ddd8df] p-[24px] gap-5 flex flex-col h-screen overflow-hidden`}
     >
       <DesktopView className={`${isCursorActive}`}>
-        <DagerSay code='dotgpt' />
+        <DagerSay key={window} code={window} />
         <div
           className={`grid grid-cols-2 grid-row-4 justify-start items-start flex-col`}
         >
