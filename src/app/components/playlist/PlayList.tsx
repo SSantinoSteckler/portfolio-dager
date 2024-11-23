@@ -104,7 +104,7 @@ const PlayList = () => {
   return (
     <>
       {isPlaylist ? (
-        <div className='bg-[#826293] max-w-full sm:max-w-[430px] px-4 py-4 flex flex-col justify-around gap-4 box-shadow w-full mx-4 sm:mx-8 max-h-[650px]'>
+        <div className='bg-[#826293] max-w-full sm:max-w-[430px] px-4 py-4 flex flex-col justify-around gap-4 box-shadow w-full mx-4 sm:mx-8 2xl:max-h-[550px] max-h-[500px]'>
           <div className='flex justify-center'>
             <h3 className='text-[22px] text-white'>Playlist</h3>
           </div>
@@ -131,7 +131,7 @@ const PlayList = () => {
             ))}
           </div>
 
-          <div className='bg-[#DDD8DF] p-4 py-4 flex flex-row gap-3 items-center'>
+          <div className='bg-[#DDD8DF] p-4 py-6 flex flex-row gap-3 items-center'>
             <div
               onClick={togglePlayPause}
               className='bg-[#826293] p-3 rounded-full w-[40px] h-[40px] flex justify-center items-center cursor-pointer'
