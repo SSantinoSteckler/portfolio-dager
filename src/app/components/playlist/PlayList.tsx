@@ -114,7 +114,7 @@ const PlayList = () => {
                 key={index}
                 className={`py-2 ${
                   index === currentSongIndex
-                    ? 'bg-[#826293] text-white'
+                    ? 'bg-[#826293] text-white hover:bg-[#8d6f9e]'
                     : 'bg-[#a4a4a4] hover:bg-[#82629378]'
                 } cursor-pointer`}
                 onClick={() => handleSongClick(index)}

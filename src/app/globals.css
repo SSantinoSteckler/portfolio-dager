@@ -27,3 +27,12 @@
 .desktop-tv {
   box-shadow: 0 0 1rem #000000;
 }
+
+.virus-active {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/dager-fondo.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: url('/pepino-chiquito.png'), auto;
+}

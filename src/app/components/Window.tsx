@@ -73,7 +73,7 @@ export const Window = ({
   return (
     <div
       ref={windowRef}
-      className='bg-[#ddd5f1] fixed z-50 desktop-window'
+      className={`bg-[#ddd5f1] fixed z-50 desktop-window`}
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,

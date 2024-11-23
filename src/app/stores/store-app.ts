@@ -8,6 +8,11 @@ interface AudioStore {
   setIsPlayList: () => void;
 }
 
+interface VirusStore {
+  isVirusActive: boolean;
+  setIsVirusActive: () => void;
+}
+
 export const useAudioStore = create<AudioStore>((set) => ({
   isMuted: false,
   isPlaylist: true,
@@ -17,4 +22,10 @@ export const useAudioStore = create<AudioStore>((set) => ({
     }));
   },
   toggleMute: () => set((state) => ({ isMuted: !state.isMuted })),
+}));
+
+export const useVirusStore = create<VirusStore>((set) => ({
+  isVirusActive: false,
+  setIsVirusActive: () =>
+    set((state) => ({ isVirusActive: !state.isVirusActive })),
 }));

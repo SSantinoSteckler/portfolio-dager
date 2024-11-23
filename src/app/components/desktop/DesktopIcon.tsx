@@ -4,15 +4,15 @@ interface Props {
   img: string;
   name: string;
   onClick: () => void;
-  isOpen: boolean;
-  children: React.ReactNode;
+  isOpen?: boolean;
+  children?: React.ReactNode;
 }
 
 export const DesktopIcon = ({
   img,
   name,
   onClick,
-  isOpen,
+  isOpen = false,
   children,
 }: Props) => {
   return (
