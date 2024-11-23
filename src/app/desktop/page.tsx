@@ -91,7 +91,7 @@ export default function DesktopPage() {
           </DesktopIcon>
           <div onClick={handleClickCursor}>
             <DesktopIcon
-              img='/word.png'
+              img='/php.png'
               name='contrato.php (digo.pdf)'
               isOpen={isOpenHack}
               onClick={handleClickHack}
