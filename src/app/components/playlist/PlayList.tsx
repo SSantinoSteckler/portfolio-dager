@@ -104,15 +104,15 @@ const PlayList = () => {
   return (
     <>
       {isPlaylist ? (
-        <div className='bg-[#826293] max-w-full sm:max-w-[530px] px-6 py-6 flex flex-col justify-around gap-6 box-shadow w-full mx-4 sm:mx-8 max-h-[720px]'>
+        <div className='bg-[#826293] max-w-full sm:max-w-[430px] px-4 py-4 flex flex-col justify-around gap-4 box-shadow w-full mx-4 sm:mx-8 max-h-[650px]'>
           <div className='flex justify-center'>
-            <h3 className='text-[28px] text-white'>Playlist</h3>
+            <h3 className='text-[22px] text-white'>Playlist</h3>
           </div>
-          <div className='p-3 bg-[#DDD8DF] flex gap-3 flex-col'>
+          <div className='p-2 bg-[#DDD8DF] flex gap-2 flex-col'>
             {songs.map((song, index) => (
               <div
                 key={index}
-                className={`py-2 ${
+                className={`py-1 px-2 ${
                   index === currentSongIndex
                     ? 'bg-[#826293] text-white hover:bg-[#8d6f9e]'
                     : 'bg-[#a4a4a4] hover:bg-[#82629378]'
@@ -122,25 +122,25 @@ const PlayList = () => {
                 <div className='flex flex-row gap-2 items-center'>
                   <img
                     src={song.image}
-                    className='w-[60px] h-[60px] object-cover m-2 border-2 rounded-full'
+                    className='w-[50px] h-[50px] object-cover m-1 border-2 rounded-full'
                     alt={song.title}
                   />
-                  <span>{song.title}</span>
+                  <span className='text-[12px]'>{song.title}</span>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className='bg-[#DDD8DF] p-5 py-5 flex flex-row gap-4 items-center'>
+          <div className='bg-[#DDD8DF] p-4 py-4 flex flex-row gap-3 items-center'>
             <div
               onClick={togglePlayPause}
-              className='bg-[#826293] p-4 rounded-full w-[50px] h-[50px] flex justify-center items-center cursor-pointer'
+              className='bg-[#826293] p-3 rounded-full w-[40px] h-[40px] flex justify-center items-center cursor-pointer'
             >
               {isPlaying ? <StopIcon /> : <PlayIcon />}
             </div>
 
             <div className='w-full'>
-              <span className='text-[#826293] text-[14px]'>
+              <span className='text-[#826293] text-[12px]'>
                 {currentSong.title}
               </span>
               <div

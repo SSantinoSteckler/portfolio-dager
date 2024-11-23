@@ -22,10 +22,6 @@ export const Window = ({
 }: Props) => {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 500, y: 60 });
-  const [isFocus, setIsFocus] = useState(false);
-
-  const handleFocus = () => setIsFocus(true);
-
   const windowRef = useRef<HTMLDivElement>(null);
   const startPos = useRef({ x: 0, y: 0 });
 
