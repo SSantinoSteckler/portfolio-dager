@@ -9,7 +9,7 @@ import PlayList from '../components/playlist/PlayList';
 import SpacialDager from '../components/space-dager-game/spacial-dager';
 import SnakeGame from '../components/game-snake/snake';
 import CatsGalery from '../components/cats-galery/CatsGalery';
-import { useDagerSay, useVirusStore } from '../stores/store-app';
+import { useVirusStore } from '../stores/store-app';
 import Linkedin from '../components/linkedin-social/Linkedin';
 import { DagerSay } from '../components/dager-interactions/DagerSay';
 
