@@ -74,7 +74,7 @@ export default function DesktopPage() {
       className={`bg-[#ddd8df] p-[24px] gap-5 flex flex-col h-screen overflow-hidden`}
     >
       <DesktopView className={`${isCursorActive}`}>
-        <DagerSay code='virus' />
+        <DagerSay code='dotgpt' />
         <div
           className={`grid grid-cols-2 grid-row-4 justify-start items-start flex-col`}
         >
