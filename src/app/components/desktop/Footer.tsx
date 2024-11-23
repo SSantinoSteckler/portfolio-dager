@@ -77,20 +77,6 @@ export const Footer = () => {
         </div>
       </FooterBtn>
 
-      <FooterBtn>
-        <svg
-          width='1em'
-          height='1em'
-          viewBox='0 0 24 24'
-          className='h-[26px] w-[25px]'
-        >
-          <path
-            fill='currentColor'
-            d='M3 3h2v18H3zm16 0H5v2h14v14H5v2h16V3zm-8 6h2V7h-2zm2 8h-2v-6h2z'
-          />
-        </svg>
-      </FooterBtn>
-
       {isModalOpen && (
         <div className='absolute max-w-[200px] w-full bottom-[110%] left-[80%] transform -translate-x-1/2 z-10'>
           <ModalSocial />
