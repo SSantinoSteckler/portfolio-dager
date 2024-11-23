@@ -1,3 +1,5 @@
+'use client';
+
 interface Props {
   code: 'bienvenida' | 'risa' | 'virus' | 'linkedin' | 'dotgpt' | 'gatitos';
 }
@@ -14,8 +16,7 @@ export const DagerSay = ({ code }: Props) => {
     },
     {
       code: 'virus',
-      sayThis:
-        'NOOO mi contrato millonario con Microjost, me re cagaron JAJAJA',
+      sayThis: 'Sospechoso...',
     },
     {
       code: 'likedin',
@@ -41,9 +42,11 @@ export const DagerSay = ({ code }: Props) => {
 
   return (
     sayThis.length && (
-      <div className=''>
-        <p>{sayThis}</p>
-      </div>
+      <article className='absolute z-[999]'>
+        <div className='dager-modal w-[350px] min-h[150px] max-h-[200px] border-4 border-[#826293] border-solid m-[50px_auto] rounded-[1px] flex justify-center items-center text-[0.9rem] relative bg-[#1D1B1B] text-white p-4'>
+          <p>{sayThis}</p>
+        </div>
+      </article>
     )
   );
 };

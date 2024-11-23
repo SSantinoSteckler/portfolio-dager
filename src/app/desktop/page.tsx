@@ -11,6 +11,7 @@ import SnakeGame from '../components/game-snake/snake';
 import CatsGalery from '../components/cats-galery/CatsGalery';
 import { useVirusStore } from '../stores/store-app';
 import Linkedin from '../components/linkedin-social/Linkedin';
+import { DagerSay } from '../components/dager-interactions/DagerSay';
 
 export default function DesktopPage() {
   const [isOpenDotGpt, setIsOpenDotGpt] = useState(false);
@@ -71,6 +72,7 @@ export default function DesktopPage() {
       className={`bg-[#ddd8df] p-[24px] gap-5 flex flex-col h-screen overflow-hidden`}
     >
       <DesktopView className={`${isCursorActive}`}>
+        <DagerSay code='virus' />
         <div
           className={`grid grid-cols-2 grid-row-4 justify-start items-start flex-col`}
         >

@@ -36,3 +36,33 @@
   background-size: cover;
   cursor: url('/pepino-chiquito.png'), auto;
 }
+
+.dager-modal {
+  box-shadow: -2px 2px 0 0.1rem #826293;
+}
+
+.dager-modal::before {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 24px solid #826293;
+  border-right: 24px solid transparent;
+  border-top: 24px solid #826293;
+  border-bottom: 24px solid transparent;
+  left: 20px;
+  bottom: -50px;
+}
+
+.dager-modal::after {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 24px solid #1d1b1b;
+  border-right: 24px solid transparent;
+  border-top: 24px solid #1d1b1b;
+  border-bottom: 24px solid transparent;
+  left: 24px;
+  bottom: -40px;
+}
