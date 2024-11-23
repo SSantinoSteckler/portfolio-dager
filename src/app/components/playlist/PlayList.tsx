@@ -131,7 +131,7 @@ const PlayList = () => {
             ))}
           </div>
 
-          <div className='bg-[#DDD8DF] p-4 py-6 flex flex-row gap-3 items-center'>
+          <div className='bg-[#DDD8DF] p-4  py-4 2xl:p-6 flex flex-row gap-3 items-center'>
             <div
               onClick={togglePlayPause}
               className='bg-[#826293] p-3 rounded-full w-[40px] h-[40px] flex justify-center items-center cursor-pointer'

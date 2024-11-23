@@ -86,7 +86,7 @@ export default function DesktopPage() {
 
   return (
     <section
-      className={`bg-[#ddd8df] p-[24px] gap-5 flex flex-col h-screen overflow-hidden`}
+      className={`bg-[#ddd8df] p-[24px] h-screen gap-5 flex flex-col  overflow-hidden overflow-y-scroll`}
     >
       <DesktopView className={`${isCursorActive}`}>
         <DagerSay key={window} code={window} />
