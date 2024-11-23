@@ -23,3 +23,7 @@
 .desktop-window {
   box-shadow: 0 0 1rem #0000006f;
 }
+
+.desktop-tv {
+  box-shadow: 0 0 1rem #000000;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 
 const ModalSocial = () => {
   return (
-    <section className='w-[407px] h-[330px] bg-[#826293] flex flex-col gap-[15px] p-[29px_32px_24px] text-[#826293]'>
+    <section className='w-[407px] h-[330px] bg-[#826293] flex flex-col gap-[15px] p-[29px_32px_24px] text-[#826293] desktop-tv'>
       <article className='bg-[#D9D9D9] p-5 rounded-lg gap-4 flex flex-col'>
         <h2 className='text-[32px] self-center'>Mis Redes</h2>
         <div className='flex flex-col gap-1 text-[1rem]'>
