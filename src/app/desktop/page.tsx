@@ -9,7 +9,7 @@ import PlayList from '../components/playlist/PlayList';
 import SpacialDager from '../components/space-dager-game/spacial-dager';
 import SnakeGame from '../components/game-snake/snake';
 import CatsGalery from '../components/cats-galery/CatsGalery';
-import { useDagerSay, useVirusStore } from '../stores/store-app';
+import { useVirusStore } from '../stores/store-app';
 import Linkedin from '../components/linkedin-social/Linkedin';
 import { DagerSay } from '../components/dager-interactions/DagerSay';
 
@@ -86,7 +86,7 @@ export default function DesktopPage() {
 
   return (
     <section
-      className={`bg-[#ddd8df] p-[24px] gap-5 flex flex-col h-screen overflow-hidden`}
+      className={`bg-[#ddd8df] p-[24px] gap-5 flex flex-col  h-[100dvh] overflow-hidden`}
     >
       <DesktopView className={`${isCursorActive}`}>
         <DagerSay key={window} code={window} />
