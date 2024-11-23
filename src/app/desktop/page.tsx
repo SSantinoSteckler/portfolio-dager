@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { DesktopIcon } from '../components/desktop/DesktopIcon';
 import { DesktopView } from '../components/desktop/DesktopView';
@@ -8,8 +9,9 @@ import PlayList from '../components/playlist/PlayList';
 import SpacialDager from '../components/space-dager-game/spacial-dager';
 import SnakeGame from '../components/game-snake/snake';
 import CatsGalery from '../components/cats-galery/CatsGalery';
+import { useVirusStore } from '../stores/store-app';
 import Linkedin from '../components/linkedin-social/Linkedin';
-import Game from '../components/lumberjack/Game';
+import { DagerSay } from '../components/dager-interactions/DagerSay';
 
 export default function DesktopPage() {
   const [isOpenDotGpt, setIsOpenDotGpt] = useState(false);
@@ -17,9 +19,8 @@ export default function DesktopPage() {
   const [isOpenSnake, setIsOpenSnake] = useState(false);
   const [isOpenFolderCats, setIsOpenFolderCats] = useState(false);
   const [isOpenLinkedin, setIsOpenLinkedin] = useState(false);
-  const [isOpenHack, setIsOpenHack] = useState(false);
   const [isOpenLumberjack, setIsOpenLumberjack] = useState(false);
-  // const [cursor, setCursor] = useState(false);
+  const { setIsVirusActive, isVirusActive } = useVirusStore();
 
   const [showIntro, setShowIntro] = useState(true);
 
@@ -32,8 +33,10 @@ export default function DesktopPage() {
   const handleClickSnake = () => setIsOpenSnake(!isOpenSnake);
   const handleClickFolderCats = () => setIsOpenFolderCats(!isOpenFolderCats);
   const handleClickLinkedin = () => setIsOpenLinkedin(!isOpenLinkedin);
-  const handleClickHack = () => setIsOpenHack(!isOpenHack);
   const handleClickLumberjack = () => setIsOpenLumberjack(!isOpenLumberjack);
+  const handleClickVirus = () => {
+    setIsVirusActive();
+  };
 
   if (showIntro) {
     return (
@@ -64,10 +67,17 @@ export default function DesktopPage() {
     );
   }
 
+  const isCursorActive = isVirusActive ? 'virus-active' : '';
+
   return (
-    <section className='bg-[#ddd8df] p-[24px] gap-5 flex flex-col h-screen overflow-hidden'>
-      <DesktopView>
-        <div className='grid grid-cols-2 grid-row-4 justify-start items-start flex-col '>
+    <section
+      className={`bg-[#ddd8df] p-[24px] gap-5 flex flex-col h-screen overflow-hidden`}
+    >
+      <DesktopView className={`${isCursorActive}`}>
+        <DagerSay code='virus' />
+        <div
+          className={`grid grid-cols-2 grid-row-4 justify-start items-start flex-col`}
+        >
           <DesktopIcon
             img='/dagergpt.png'
             name='DotGpt'
@@ -84,20 +94,12 @@ export default function DesktopPage() {
           >
             <SpacialDager />
           </DesktopIcon>
-          <div>
-            <DesktopIcon
-              img='/php.png'
-              name='contrato.php (digo.pdf)'
-              isOpen={isOpenHack}
-              onClick={handleClickHack}
-            >
-              <img
-                src='/pepinos.jpg'
-                className='w-full object-cover'
-                alt='pepinos'
-              />
-            </DesktopIcon>
-          </div>
+          <DesktopIcon
+            img='/php.png'
+            name='contrato.php (digo.pdf)'
+            onClick={handleClickVirus}
+          ></DesktopIcon>
+
           <DesktopIcon
             img='/folder.jpg'
             onClick={handleClickFolderCats}
