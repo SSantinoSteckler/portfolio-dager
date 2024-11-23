@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { DesktopIcon } from '../components/desktop/DesktopIcon';
 import { DesktopView } from '../components/desktop/DesktopView';
@@ -9,6 +10,7 @@ import SpacialDager from '../components/space-dager-game/spacial-dager';
 import SnakeGame from '../components/game-snake/snake';
 import CatsGalery from '../components/cats-galery/CatsGalery';
 import { useVirusStore } from '../stores/store-app';
+import Linkedin from '../components/linkedin-social/Linkedin';
 
 export default function DesktopPage() {
   const [isOpenDotGpt, setIsOpenDotGpt] = useState(false);
@@ -31,7 +33,6 @@ export default function DesktopPage() {
   const handleClickLinkedin = () => setIsOpenLinkedin(!isOpenLinkedin);
   const handleClickVirus = () => {
     setIsVirusActive();
-    console.log(isVirusActive);
   };
 
   if (showIntro) {
@@ -111,13 +112,16 @@ export default function DesktopPage() {
           >
             <SnakeGame />
           </DesktopIcon>
-
           <DesktopIcon
             img='/linkedin.png'
             name='Linkedin'
             isOpen={isOpenLinkedin}
             onClick={handleClickLinkedin}
-          ></DesktopIcon>
+            minWidth={900}
+            minHeight={400}
+          >
+            <Linkedin />
+          </DesktopIcon>
         </div>
         <PlayList />
       </DesktopView>

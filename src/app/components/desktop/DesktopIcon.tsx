@@ -5,6 +5,8 @@ interface Props {
   name: string;
   onClick: () => void;
   isOpen?: boolean;
+  minWidth?: number;
+  minHeight?: number;
   children?: React.ReactNode;
 }
 
@@ -14,6 +16,8 @@ export const DesktopIcon = ({
   onClick,
   isOpen = false,
   children,
+  minWidth,
+  minHeight,
 }: Props) => {
   return (
     <>
@@ -30,7 +34,12 @@ export const DesktopIcon = ({
         </span>
       </section>
       {isOpen && (
-        <Window name={name} onClick={onClick}>
+        <Window
+          name={name}
+          onClick={onClick}
+          minHeight={minHeight}
+          minWidth={minWidth}
+        >
           {children}
         </Window>
       )}

@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         espacio: "url('/espacio1.jpg')",
+        dagerLinkedin: "url('/banner.jpg')",
       },
       colors: {
         background: 'var(--background)',
