@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { DesktopIcon } from '../components/desktop/DesktopIcon';
 import { DesktopView } from '../components/desktop/DesktopView';
 import { Footer } from '../components/desktop/Footer';
@@ -8,6 +8,7 @@ import PlayList from '../components/playlist/PlayList';
 import SpacialDager from '../components/space-dager-game/spacial-dager';
 import SnakeGame from '../components/game-snake/snake';
 import CatsGalery from '../components/cats-galery/CatsGalery';
+import Linkedin from '../components/linkedin-social/Linkedin';
 
 export default function DesktopPage() {
   const [isOpenDotGpt, setIsOpenDotGpt] = useState(false);
@@ -16,7 +17,7 @@ export default function DesktopPage() {
   const [isOpenFolderCats, setIsOpenFolderCats] = useState(false);
   const [isOpenLinkedin, setIsOpenLinkedin] = useState(false);
   const [isOpenHack, setIsOpenHack] = useState(false);
-  const [cursor, setCursor] = useState(false);
+  // const [cursor, setCursor] = useState(false);
 
   const [showIntro, setShowIntro] = useState(true);
 
@@ -31,14 +32,6 @@ export default function DesktopPage() {
   const handleClickLinkedin = () => setIsOpenLinkedin(!isOpenLinkedin);
   const handleClickHack = () => setIsOpenHack(!isOpenHack);
   const handleClickCursor = () => setCursor(true);
-
-  useEffect(() => {
-    if (cursor) {
-      document.body.classList.add('cursor-pepino');
-    } else {
-      document.body.classList.remove('cursor-pepino');
-    }
-  }, [cursor]);
 
   if (showIntro) {
     return (
@@ -119,13 +112,16 @@ export default function DesktopPage() {
           >
             <SnakeGame />
           </DesktopIcon>
-
           <DesktopIcon
             img='/linkedin.png'
             name='Linkedin'
             isOpen={isOpenLinkedin}
             onClick={handleClickLinkedin}
-          ></DesktopIcon>
+            minWidth={900}
+            minHeight={400}
+          >
+            <Linkedin />
+          </DesktopIcon>
         </div>
         <PlayList />
       </DesktopView>
