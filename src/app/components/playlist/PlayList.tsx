@@ -104,7 +104,7 @@ const PlayList = () => {
   return (
     <>
       {isPlaylist ? (
-        <div className='bg-[#826293] max-w-full sm:max-w-[530px] px-6 py-6 flex flex-col justify-around gap-6 box-shadow w-full mx-4 sm:mx-8 '>
+        <div className='bg-[#826293] max-w-full sm:max-w-[530px] px-6 py-6 flex flex-col justify-around gap-6 box-shadow w-full mx-4 sm:mx-8 max-h-[720px] '>
           <div className='flex justify-center'>
             <h3 className='text-[28px] text-white'>Playlist</h3>
           </div>

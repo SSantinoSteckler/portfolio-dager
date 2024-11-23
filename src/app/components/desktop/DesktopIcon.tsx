@@ -25,7 +25,7 @@ export const DesktopIcon = ({
           style={{ backgroundImage: `url(${img})` }}
           className={`size-[100px]  bg-center bg-cover bg-no-repeat rounded-lg`}
         ></div>
-        <span className='text-[0.9rem] text-[#826293] break-words text-center'>
+        <span className='text-[0.79rem] text-[#826293] break-words text-center '>
           {name}
         </span>
       </section>

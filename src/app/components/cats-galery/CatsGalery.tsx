@@ -33,15 +33,15 @@ const CatsGalery = () => {
   }, []);
 
   return (
-    <div className='bg-black max-w-[1000px] h-[500px]  p-4 overflow-y-scroll flex justify-center'>
-      <div className='flex flex-wrap flex-row gap-3 justify-center w-full '>
+    <div className=' max-w-[1000px] h-[500px]  p-4 overflow-y-scroll flex justify-center py-5'>
+      <div className='flex flex-wrap flex-row gap-3 justify-center w-full  '>
         {catImages.map((cat, index) => (
           <Image
             key={index}
             src={cat.url}
             width={210}
             height={190}
-            className='object-cover rounded-xl cursor-pointer border-white border-2 bg-white'
+            className='object-cover rounded-xl cursor-pointer border-[#826293] border-2 bg-white'
             alt={`Cat Image ${index + 1}`}
           />
         ))}

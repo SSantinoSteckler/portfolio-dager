@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DesktopIcon } from '../components/desktop/DesktopIcon';
 import { DesktopView } from '../components/desktop/DesktopView';
 import { Footer } from '../components/desktop/Footer';
@@ -14,34 +14,72 @@ export default function DesktopPage() {
   const [isOpenSpaceXDager, setIsOpenSpaceXDager] = useState(false);
   const [isOpenSnake, setIsOpenSnake] = useState(false);
   const [isOpenFolderCats, setIsOpenFolderCats] = useState(false);
+  const [isOpenLinkedin, setIsOpenLinkedin] = useState(false);
+  const [isOpenHack, setIsOpenHack] = useState(false);
+  const [cursor, setCursor] = useState(false);
 
-  const handleClickDotGpt = () => {
-    setIsOpenDotGpt(!isOpenDotGpt);
+  const [showIntro, setShowIntro] = useState(true);
+
+  const handleVideoEnd = () => {
+    setShowIntro(false);
   };
 
-  const handleClickSpaceXDager = () => {
-    setIsOpenSpaceXDager(!isOpenSpaceXDager);
-  };
+  const handleClickDotGpt = () => setIsOpenDotGpt(!isOpenDotGpt);
+  const handleClickSpaceXDager = () => setIsOpenSpaceXDager(!isOpenSpaceXDager);
+  const handleClickSnake = () => setIsOpenSnake(!isOpenSnake);
+  const handleClickFolderCats = () => setIsOpenFolderCats(!isOpenFolderCats);
+  const handleClickLinkedin = () => setIsOpenLinkedin(!isOpenLinkedin);
+  const handleClickHack = () => setIsOpenHack(!isOpenHack);
+  const handleClickCursor = () => setCursor(true);
 
-  const handleClickSnake = () => {
-    setIsOpenSnake(!isOpenSnake);
-  };
+  useEffect(() => {
+    if (cursor) {
+      document.body.classList.add('cursor-pepino');
+    } else {
+      document.body.classList.remove('cursor-pepino');
+    }
+  }, [cursor]);
 
-  const handleClickFolderCats = () => {
-    setIsOpenFolderCats(!isOpenFolderCats);
-  };
+  if (showIntro) {
+    return (
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 9999,
+          backgroundColor: 'black',
+        }}
+      >
+        <video
+          src='/preview.mp4'
+          autoPlay
+          muted
+          playsInline
+          onEnded={handleVideoEnd}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        ></video>
+      </div>
+    );
+  }
 
   return (
     <section className='bg-[#ddd8df] p-[24px] gap-5 flex flex-col h-screen overflow-hidden'>
       <DesktopView>
-        <div className='flex gap-2 justify-start items-start flex-col '>
+        <div className='grid grid-cols-2 grid-row-4 justify-start items-start flex-col '>
           <DesktopIcon
             img='/dagergpt.png'
             name='DotGpt'
             onClick={handleClickDotGpt}
             isOpen={isOpenDotGpt}
           >
-            <DotGPT></DotGPT>
+            <DotGPT />
           </DesktopIcon>
           <DesktopIcon
             img='/spacenave.jpg'
@@ -51,14 +89,20 @@ export default function DesktopPage() {
           >
             <SpacialDager />
           </DesktopIcon>
-          <DesktopIcon
-            img='/snakelogo.png'
-            onClick={handleClickSnake}
-            name='SnakeDager'
-            isOpen={isOpenSnake}
-          >
-            <SnakeGame />
-          </DesktopIcon>
+          <div onClick={handleClickCursor}>
+            <DesktopIcon
+              img='/word.png'
+              name='contrato.php (digo.pdf)'
+              isOpen={isOpenHack}
+              onClick={handleClickHack}
+            >
+              <img
+                src='/pepinos.jpg'
+                className='w-full object-cover'
+                alt='pepinos'
+              />
+            </DesktopIcon>
+          </div>
           <DesktopIcon
             img='/folder.jpg'
             onClick={handleClickFolderCats}
@@ -67,11 +111,22 @@ export default function DesktopPage() {
           >
             <CatsGalery />
           </DesktopIcon>
-        </div>
-        {/* <Window name='dad'>
-          <DotGPT />
-        </Window> */}
+          <DesktopIcon
+            img='/snakelogo.png'
+            onClick={handleClickSnake}
+            name='SnakeDager'
+            isOpen={isOpenSnake}
+          >
+            <SnakeGame />
+          </DesktopIcon>
 
+          <DesktopIcon
+            img='/linkedin.png'
+            name='Linkedin'
+            isOpen={isOpenLinkedin}
+            onClick={handleClickLinkedin}
+          ></DesktopIcon>
+        </div>
         <PlayList />
       </DesktopView>
       <Footer />

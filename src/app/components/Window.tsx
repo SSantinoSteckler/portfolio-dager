@@ -8,7 +8,6 @@ interface Props {
   minHeight?: number;
   maxHeight?: number;
   maxWidth?: number;
-  modalRef?: React.RefObject<HTMLDivElement>;
   onClick: () => void;
 }
 
@@ -20,32 +19,42 @@ export const Window = ({
   minHeight = 400,
   maxHeight = 800,
   maxWidth = 1000,
-  modalRef,
 }: Props) => {
   const [isDragging, setIsDragging] = useState(false);
+  const [position, setPosition] = useState({ x: 500, y: 60 });
 
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  const windowRef = useRef(null);
+  const windowRef = useRef<HTMLDivElement>(null);
   const startPos = useRef({ x: 0, y: 0 });
 
-  const handleMouseDown = (e) => {
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { x, y } = position;
     setIsDragging(true);
-    startPos.current = { x: e.clientX - position.x, y: e.clientY - position.y };
+    startPos.current = {
+      x: e.clientX - x,
+      y: e.clientY - y,
+    };
   };
 
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    const x = e.clientX - startPos.current.x;
-    const y = e.clientY - startPos.current.y;
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!isDragging || !windowRef.current) return;
+
+    const windowElement = windowRef.current.getBoundingClientRect();
+
+    const x = Math.min(
+      Math.max(e.clientX - startPos.current.x, 0),
+      window.innerWidth - windowElement.width
+    );
+
+    const y = Math.min(
+      Math.max(e.clientY - startPos.current.y, 0),
+      window.innerHeight - windowElement.height
+    );
+
     setPosition({ x, y });
   };
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
+  const handleMouseUp = () => setIsDragging(false);
 
-  // Attach events to the document to track mouse movements even if the mouse moves outside the window.
   useEffect(() => {
     if (isDragging) {
       document.addEventListener('mousemove', handleMouseMove);
@@ -54,39 +63,36 @@ export const Window = ({
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     }
+
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
   }, [isDragging]);
 
-  // let positionOptionX = `calc(50% - ${minWidth} / 2)`;
-  // let positionOptionY = `calc(50% - ${minHeight} / 2)`;
-
   return (
-    <section
-      className={`bg-[#ddd5f1] absolute desktop-window w-auto z-50 `}
+    <div
+      ref={windowRef}
+      className='bg-[#ddd5f1] fixed z-50'
       style={{
-        left: position.x || '500px',
-        top: position.y || '50px',
+        left: `${position.x}px`,
+        top: `${position.y}px`,
         minHeight: `${minHeight}px`,
         minWidth: `${minWidth}px`,
         maxHeight: `${maxHeight}px`,
         maxWidth: `${maxWidth}px`,
       }}
-      ref={modalRef}
-      onMouseDown={handleMouseDown}
     >
       <header
-        className='flex justify-between items-center h-[57] w-full'
-        ref={windowRef}
+        className='flex justify-between items-center h-[57px] w-full cursor-move'
+        onMouseDown={handleMouseDown}
       >
-        <article className='w-full h-[57px] bg-[#7758BF] border-b-4 border-[#A185E3] flex items-center pl-5'>
-          <span className='text-[12px]'>{name}</span>
-        </article>
+        <div className='w-full h-[57px] bg-[#7758BF] border-b-4 border-[#A185E3] flex items-center pl-5'>
+          <span className='text-[12px] text-white'>{name}</span>
+        </div>
         <button
           onClick={onClick}
-          className='w-[57px] h-[57px] bg-[#B74B4C] flex justify-center items-center shadow-[inset_0_0_0_6px_#AE4244] hover:shadow-[#B35152] hover:bg-[#B55B5C] close-window-btn transition-colors'
+          className='w-[57px] h-[57px] bg-[#B74B4C] flex justify-center items-center shadow-[inset_0_0_0_6px_#AE4244] hover:shadow-[#B35152] hover:bg-[#B55B5C] transition-colors'
         >
           <svg
             width='1em'
@@ -101,7 +107,7 @@ export const Window = ({
           </svg>
         </button>
       </header>
-      <article className='w-full h-full p-5'>{children}</article>
-    </section>
+      <main className='p-5'>{children}</main>
+    </div>
   );
 };
