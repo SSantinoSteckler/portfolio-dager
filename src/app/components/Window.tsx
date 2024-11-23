@@ -22,6 +22,9 @@ export const Window = ({
 }: Props) => {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 500, y: 60 });
+  const [isFocus, setIsFocus] = useState(false);
+
+  const handleFocus = () => setIsFocus(true);
 
   const windowRef = useRef<HTMLDivElement>(null);
   const startPos = useRef({ x: 0, y: 0 });
@@ -84,11 +87,9 @@ export const Window = ({
         maxHeight: `${maxHeight}px`,
         maxWidth: `${maxWidth}px`,
       }}
+      onMouseDown={handleMouseDown}
     >
-      <header
-        className='flex justify-between items-center h-[57px] w-full cursor-move'
-        onMouseDown={handleMouseDown}
-      >
+      <header className='flex justify-between items-center h-[57px] w-full'>
         <div className='w-full h-[57px] bg-[#7758BF] border-b-4 border-[#A185E3] flex items-center pl-5'>
           <span className='text-[12px] text-white'>{name}</span>
         </div>
