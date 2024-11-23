@@ -23,11 +23,8 @@ export const Window = ({
 }: Props) => {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 500, y: 60 });
-<<<<<<< HEAD
-=======
   const [zIndex, setZIndex] = useState(0);
 
->>>>>>> ff5fcb161d8c78838486995e7b487a976651637f
   const windowRef = useRef<HTMLDivElement>(null);
   const startPos = useRef({ x: 0, y: 0 });
 
